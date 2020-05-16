@@ -5,7 +5,7 @@ import time
 import numpy as np
 
 from scipy.io import wavfile        # Sound
-from pypesq import pypesq           # PESQ : install from https://github.com/ludlows/python-pesq
+import pypesq           # PESQ : install from https://github.com/ludlows/python-pesq
 
 #   PyQTGraph
 import pyqtgraph as pg
@@ -15,7 +15,7 @@ import pyqtgraph.exporters as pgex
 #   PESQ
 # -------------------------------------------
 ## Display PESQ
-def pesq_score(clean_wav, reconst_wav, split_num=100, band='nb'):
+def pesq_core(clean_wav, reconst_wav, split_num=100, band='nb'):
 
     rate, ref = wavfile.read(clean_wav)
     rate, deg = wavfile.read(reconst_wav)

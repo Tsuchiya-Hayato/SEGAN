@@ -173,9 +173,6 @@ class create_batch_test:
     ## 	Initialization
     def __init__(self, clean_data, noisy_data, start_frame=None, stop_frame=None):
 
-        def normalize(data):
-            return (1. / 32767.) * data  # [-32768 ~ 32768] -> [-1 ~ 1]
-
         # Processing range
         if start_frame is None:             # Start frame position
             start_frame  = 0
@@ -190,7 +187,7 @@ class create_batch_test:
         self.len = len(clean_data)
 
 
-def wav_write(filename, x, fs=16000):
+def wav_write(filename, x, fs=22050):
 
     # x = de_emph(x)      # De-emphasis using LPF
 

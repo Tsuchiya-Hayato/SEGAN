@@ -337,7 +337,7 @@ def train(args):
 def test(args):
 
     ##  Load data & Create batch
-    clean_data, noisy_data = dt.data_loader(test=True, need_length=True)
+    clean_data, noisy_data = dt.data_loader(test=True)
     # Batch
     #  - Proccessing speech interval can be adjusted by "start_frame" and "start_frame".
     #  - "None" -> All speech in test dataset.
@@ -365,9 +365,9 @@ def test(args):
     output_t.forward()
 
     ##  Create wav files
-    dt.wav_write('clean.wav', baches_test.clean.flatten(), fs=16000)
-    dt.wav_write('input_segan.wav', baches_test.noisy.flatten(), fs=16000)
-    dt.wav_write('output_segan.wav', output_t.d.flatten(), fs=16000)
+    dt.wav_write('clean.wav', baches_test.clean.flatten(), fs=22050)
+    dt.wav_write('input_segan.wav', baches_test.noisy.flatten(), fs=22050)
+    dt.wav_write('output_segan.wav', output_t.d.flatten(), fs=22050)
     print('finish!')
     
 
